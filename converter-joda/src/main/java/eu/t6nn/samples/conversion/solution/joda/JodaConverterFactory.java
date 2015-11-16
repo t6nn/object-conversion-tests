@@ -13,5 +13,10 @@ public class JodaConverterFactory implements ObjectConverterFactory{
 			Class<TTarget> toClass) {
 		return new JodaConverter<>(fromClass, toClass);
 	}
+	
+	@Override
+	public String toString() {
+		return "Joda-Convert";
+	}
 
 }

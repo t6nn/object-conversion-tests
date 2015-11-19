@@ -12,6 +12,7 @@
 		<module>converter-joda</module>
 		<module>conversion-problem-api</module>
 		<module>converter-spring</module>
+		<module>conversion-model</module>
 	</modules>
 	<properties>
 		<hk2.version>2.4.0-b33</hk2.version>

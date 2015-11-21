@@ -1,4 +1,4 @@
-** CI Status: ** [![Build Status](https://api.travis-ci.org/t6nn/object-conversion-tests.png?branch=master)](https://travis-ci.org/t6nn/object-conversion-tests) <br/>
+CI Status: [![Build Status](https://api.travis-ci.org/t6nn/object-conversion-tests.png?branch=master)](https://travis-ci.org/t6nn/object-conversion-tests) <br/>
 
 # Object Conversion in Java
 This here is a set of examples on how one might solve a specific problem in Java - the Object Conversion Problem (OCP).

@@ -3,6 +3,8 @@ package eu.t6nn.samples.conversion.solution.joda.model;
 import java.util.Arrays;
 import java.util.Iterator;
 
+import javax.inject.Inject;
+
 import org.joda.convert.StringConverter;
 
 import eu.t6nn.samples.conversion.model.Money;
@@ -12,6 +14,7 @@ public class TransactionListConverter implements StringConverter<TransactionList
 
 	private final MoneyConverter moneyConverter;
 
+	@Inject
 	public TransactionListConverter(MoneyConverter moneyConverter) {
 		this.moneyConverter = moneyConverter;
 	}

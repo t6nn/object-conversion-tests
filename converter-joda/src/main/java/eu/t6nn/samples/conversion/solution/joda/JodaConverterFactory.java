@@ -1,24 +1,19 @@
 package eu.t6nn.samples.conversion.solution.joda;
 
-import org.joda.convert.StringConvert;
-import org.jvnet.hk2.annotations.Service;
+import javax.inject.Inject;
 
-import eu.t6nn.samples.conversion.model.Money;
-import eu.t6nn.samples.conversion.model.TransactionList;
+import org.joda.convert.StringConvert;
+
 import eu.t6nn.samples.conversion.problem.spi.ObjectConverter;
 import eu.t6nn.samples.conversion.problem.spi.ObjectConverterFactory;
-import eu.t6nn.samples.conversion.solution.joda.model.MoneyConverter;
-import eu.t6nn.samples.conversion.solution.joda.model.TransactionListConverter;
 
-@Service
 public class JodaConverterFactory implements ObjectConverterFactory {
 
-	private final StringConvert convert = new StringConvert();
+	private final StringConvert convert;
 
-	public JodaConverterFactory() {
-		MoneyConverter moneyConverter = new MoneyConverter();
-		convert.register(Money.class, moneyConverter);
-		convert.register(TransactionList.class, new TransactionListConverter(moneyConverter));
+	@Inject
+	JodaConverterFactory(StringConvert convert) {
+		this.convert = convert;
 	}
 
 	@Override

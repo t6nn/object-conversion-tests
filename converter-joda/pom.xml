@@ -16,8 +16,21 @@
 		</dependency>
 		<dependency>
 			<groupId>eu.t6nn.samples.conversion</groupId>
+			<artifactId>conversion-problem-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.t6nn.samples.conversion</groupId>
 			<artifactId>conversion-model</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-multibindings</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.joda</groupId>
@@ -30,12 +43,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.glassfish.hk2</groupId>
-				<artifactId>hk2-inhabitant-generator</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 </project>

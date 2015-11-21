@@ -13,17 +13,22 @@
 		<module>conversion-problem-api</module>
 		<module>converter-spring</module>
 		<module>conversion-model</module>
+		<module>conversion-problem-common</module>
 	</modules>
 	<properties>
-		<hk2.version>2.4.0-b33</hk2.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.glassfish.hk2</groupId>
-				<artifactId>hk2</artifactId>
-				<version>${hk2.version}</version>
+				<groupId>com.google.inject</groupId>
+				<artifactId>guice</artifactId>
+				<version>4.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.inject.extensions</groupId>
+				<artifactId>guice-multibindings</artifactId>
+				<version>4.0</version>
 			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
@@ -43,53 +48,6 @@
 					<configuration>
 						<source>1.8</source>
 						<target>1.8</target>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.glassfish.hk2</groupId>
-					<artifactId>hk2-inhabitant-generator</artifactId>
-					<version>${hk2.version}</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>generate-inhabitants</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.glassfish.hk2
-										</groupId>
-										<artifactId>
-											hk2-inhabitant-generator
-										</artifactId>
-										<versionRange>
-											[2.4.0-b33,)
-										</versionRange>
-										<goals>
-											<goal>
-												generate-inhabitants
-											</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<execute>
-											<runOnIncremental/>
-										</execute>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
 			</plugins>

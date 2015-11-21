@@ -1,18 +1,20 @@
 package eu.t6nn.samples.conversion.problem;
 
-import javax.inject.Inject;
+import java.util.Set;
 
-import org.glassfish.hk2.api.IterableProvider;
-import org.jvnet.hk2.annotations.Service;
+import javax.inject.Inject;
 
 import eu.t6nn.samples.conversion.problem.spi.ObjectConverter;
 import eu.t6nn.samples.conversion.problem.spi.ObjectConverterFactory;
 
-@Service
 public class ProblemTester {
 
+	private final Set<ObjectConverterFactory> converterFactories;
+
 	@Inject
-	private IterableProvider<ObjectConverterFactory> converterFactories;
+	public ProblemTester(Set<ObjectConverterFactory> converterFactories) {
+		this.converterFactories = converterFactories;
+	}
 	
 	public void testSimpleConversion() {
 		converterFactories.forEach(this::testSimpleConversion);

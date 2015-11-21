@@ -1,14 +1,14 @@
 package eu.t6nn.samples.conversion.problem;
 
-import org.glassfish.hk2.api.ServiceLocator;
-import org.glassfish.hk2.utilities.ServiceLocatorUtilities;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 public class ProblemBootstrapper {
 
 	public static void main(String[] args) {
-		ServiceLocator locator = ServiceLocatorUtilities.createAndPopulateServiceLocator();
+		Injector injector = Guice.createInjector(new RootModule());
 
-		ProblemTester tester = locator.getService(ProblemTester.class);
+		ProblemTester tester = injector.getInstance(ProblemTester.class);
 		tester.testSimpleConversion();
 	}
 }

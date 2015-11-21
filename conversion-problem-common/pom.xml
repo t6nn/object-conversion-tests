@@ -6,12 +6,16 @@
 		<artifactId>object-conversion-tests</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>conversion-problem-api</artifactId>
-	<name>Common API / SPI for the Conversion Problem</name>
+	<artifactId>conversion-problem-common</artifactId>
+	<name>Common features for solution providers</name>
 	<dependencies>
 		<dependency>
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-multibindings</artifactId>
 		</dependency>
 	</dependencies>
 </project>

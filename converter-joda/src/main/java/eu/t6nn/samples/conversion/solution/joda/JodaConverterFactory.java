@@ -24,7 +24,7 @@ public class JodaConverterFactory implements ObjectConverterFactory {
 
 	@Override
 	public String toString() {
-		return "Joda-Convert";
+		return "Joda-Converter Factory";
 	}
 
 }

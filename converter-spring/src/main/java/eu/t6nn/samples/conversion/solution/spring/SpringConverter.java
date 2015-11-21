@@ -18,11 +18,15 @@ public class SpringConverter<TSource, TTarget> implements ObjectConverter<TSourc
 		this.toClass = toClass;
 		this.conversionService = conversionService;
 	}
-	
+
 	@Override
 	public TTarget convert(TSource value) {
-		System.out.println("Converting from " + fromClass + " to " + toClass);
 		return conversionService.convert(value, toClass);
+	}
+
+	@Override
+	public String toString() {
+		return "Spring-Converter from " + fromClass + " to " + toClass;
 	}
 
 }

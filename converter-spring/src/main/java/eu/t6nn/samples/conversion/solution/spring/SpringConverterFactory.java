@@ -24,7 +24,7 @@ public class SpringConverterFactory implements ObjectConverterFactory {
 	
 	@Override
 	public String toString() {
-		return "Spring-Convert";
+		return "Spring-Converter Factory";
 	}
 
 }

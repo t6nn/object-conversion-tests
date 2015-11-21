@@ -8,18 +8,20 @@ public class JodaConverter<TSource, TTarget> implements ObjectConverter<TSource,
 
 	private final Class<TSource> sourceClass;
 	private final Class<TTarget> targetClass;
+	private final StringConvert convert;
 
-	JodaConverter(Class<TSource> sourceClass, Class<TTarget> targetClass) {
+	JodaConverter(Class<TSource> sourceClass, Class<TTarget> targetClass, StringConvert convert) {
 		this.sourceClass = sourceClass;
 		this.targetClass = targetClass;
+		this.convert = convert;
 	}
-	
+
 	@Override
 	public TTarget convert(TSource value) {
 		System.out.println("Converting from " + sourceClass + " to " + targetClass);
-		
-		String stringFormat = StringConvert.INSTANCE.convertToString(value);
-		return StringConvert.INSTANCE.convertFromString(targetClass, stringFormat);
+
+		String stringFormat = convert.convertToString(value);
+		return convert.convertFromString(targetClass, stringFormat);
 	}
 
 }

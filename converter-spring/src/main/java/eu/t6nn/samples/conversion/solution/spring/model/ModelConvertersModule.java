@@ -21,6 +21,7 @@ public class ModelConvertersModule extends AbstractModule {
 		binder.addBinding().to(MoneyToTransactionList.class);
 		binder.addBinding().to(StringToTransactionList.class);
 		binder.addBinding().to(TransactionListToString.class);
+		binder.addBinding().to(MoneyToBigDecimal.class);
 	}
 
 }

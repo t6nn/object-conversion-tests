@@ -18,8 +18,6 @@ public class JodaConverter<TSource, TTarget> implements ObjectConverter<TSource,
 
 	@Override
 	public TTarget convert(TSource value) {
-		System.out.println("Converting from " + fromClass + " to " + toClass);
-
 		String stringFormat = convert.convertToString(value);
 		return convert.convertFromString(toClass, stringFormat);
 	}

@@ -49,6 +49,7 @@ public class ProblemTester {
 		
 		suite.addTestCase("Money->TransactionList", new Money(BigDecimal.valueOf(1000, 2), Currency.EUR), Money.class, TransactionList.class);
 		suite.addTestCase("Money->BigDecimal", new Money(BigDecimal.valueOf(1000, 2), Currency.EUR), Money.class, BigDecimal.class);
+		suite.addTestCase("Money->Double", new Money(BigDecimal.valueOf(1000, 2), Currency.EUR), Money.class, Double.class);
 		
 		//suite.addTestCase("BigDecimal->Money", BigDecimal.valueOf(1522, 2), BigDecimal.class, Money.class);
 		//suite.addTestCase("Double->Money", 22.14D, Double.class, Money.class);

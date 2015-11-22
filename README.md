@@ -30,6 +30,8 @@ Within the scope of the examples, we attempt to implement support for the follow
 - `Money` to `TransactionList`, to create a list containing a single transaction.
 - `Money` to BigDecimal, dropping the currency in the process (a lossy conversion).
 
+Sometimes, it would also be desired for conversions to be chained. For example, if there is a converter defined from type A to B and from B to C, it would make sense for a conversion framework to convert from A to C through type B, if a converter from A to C is not explicitly defined.
+
 ## Technologies Used
 - [Joda-Convert](http://www.joda.org/joda-convert/) version 1.2, example under /converter-joda
 - [Spring-Core](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/validation.html) version 4.2.2.RELEASE, example under /converter-spring

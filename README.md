@@ -19,7 +19,16 @@ to the framework. The exact way of how this could be provided, is the main probl
 are created to resolve.
 
 ## Test Domain Definition
-TBD
+For the purpose of these examples, we will define three domain classes (under /conversion-model):
+- Currency - an `enum`, representing currencies supported in our domain.
+- Money - Represents a monetary value that has a currency assigned to it.
+- TransactionList - a list of monetary values.
+
+Within the scope of the examples, we attempt to implement support for the following conversions:
+- All domain types to `String` and back, for serialization purposes.
+- `Money` to `TransactionList`, to create a list containing a single transaction.
+- `Money` to BigDecimal, dropping the currency in the process (a lossy conversion).
 
 ## Technologies Used
-- Joda-Convert (http://www.joda.org/joda-convert/) version 1.2, example under /converter-joda
+- [Joda-Convert](http://www.joda.org/joda-convert/) version 1.2, example under /converter-joda
+- [Spring-Core](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/validation.html) version 4.2.2.RELEASE, example under /converter-spring

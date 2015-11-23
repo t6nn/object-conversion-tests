@@ -1,6 +1,9 @@
 package eu.t6nn.samples.conversion.problem;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -41,6 +44,12 @@ public class ProblemTester {
 		suite.addTestCase("Money->String", new Money(BigDecimal.valueOf(1000, 2), Currency.EUR), Money.class, String.class);
 		suite.addTestCase("String->Money", "12 EUR", String.class, Money.class);
 		
+		suite.addTestCase("Object->List", new Object(), Object.class, List.class);
+		suite.addTestCase("Object->Set", new Object(), Object.class, Set.class);
+
+		suite.addTestCase("Set<String>->List", setOf("Foo", "Bar"), Set.class, List.class);
+		suite.addTestCase("List<String>->Set", Arrays.asList("Foo", "Foo", "Bar"), List.class, Set.class);
+
 		TransactionList list = new TransactionList();
 		list.add(new Money(BigDecimal.valueOf(1000, 2), Currency.EUR));
 		list.add(new Money(BigDecimal.valueOf(-20, 2), Currency.USD));
@@ -51,11 +60,23 @@ public class ProblemTester {
 		suite.addTestCase("Money->BigDecimal", new Money(BigDecimal.valueOf(1000, 2), Currency.EUR), Money.class, BigDecimal.class);
 		suite.addTestCase("Money->Double", new Money(BigDecimal.valueOf(1000, 2), Currency.EUR), Money.class, Double.class);
 		
+		suite.addTestCase("Money->List", new Money(BigDecimal.valueOf(1000, 2), Currency.EUR), Money.class, List.class);
+		suite.addTestCase("Money->Set", new Money(BigDecimal.valueOf(1000, 2), Currency.EUR), Money.class, Set.class);
+
 		//suite.addTestCase("BigDecimal->Money", BigDecimal.valueOf(1522, 2), BigDecimal.class, Money.class);
 		//suite.addTestCase("Double->Money", 22.14D, Double.class, Money.class);
 		
 		suite.runAndReport();
 		System.out.println();
+	}
+
+	@SuppressWarnings("unchecked")
+	private <T> Set<T> setOf(T... values) {
+		Set<T> setOfValues = new HashSet<>();
+		for (T value : values) {
+			setOfValues.add(value);
+		}
+		return setOfValues;
 	}
 
 }

@@ -27,6 +27,8 @@ For the purpose of these examples, we will define three domain classes (under /c
 Within the scope of the examples, we attempt to implement support for the following conversions:
 - Conversions between (some) compatible built-in Java types.
 - All domain types to `String` and back, for serialization purposes.
+- Any non-collection type to a collection (such as `Set` or `List`) containing just that one instance.
+- A `Set` of instances to a `List` of the same instances and vice versa (losing equal items). 
 - `Money` to `TransactionList`, to create a list containing a single transaction.
 - `Money` to BigDecimal, dropping the currency in the process (a lossy conversion).
 

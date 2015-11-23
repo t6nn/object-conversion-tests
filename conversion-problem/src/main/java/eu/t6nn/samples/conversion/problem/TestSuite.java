@@ -1,5 +1,6 @@
 package eu.t6nn.samples.conversion.problem;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,16 +43,19 @@ class TestSuite {
 		}
 		
 		void run() {
-			System.out.print(name + ": ");
 			try {
 				Object result = factory.getConverter(fromClass, toClass).convert(fromValue);
-				System.out.print("[SUCCESS] ("+ result +")");
+				printResult(System.out, "[SUCCESS] (" + result + ")");
 			} catch (RuntimeException e) {
-				System.out.print("[FAILURE] (" + e.getMessage() + ")");
-			} finally {
-				System.out.println();
+				printResult(System.err, "[FAILURE] (" + e.getMessage() + ")");
 			}
 		}
 		
+		private void printResult(PrintStream stream, String result) {
+			stream.print(name + ": ");
+			stream.print(result);
+			stream.println();
+		}
+
 	}
 }
